@@ -1,0 +1,29 @@
+{
+  "users": {
+    "user1": {
+      "username": "user1",
+      "password": "password123",
+      "role": "user",
+      "clockTimes": [
+        {
+          "clockIn": "2024-12-24T09:00:00.000Z",
+          "clockOut": "2024-12-24T19:00:00.000Z"
+        },
+        {
+          "clockIn": "2024-12-24T19:36:31.000+01:00",
+          "clockOut": "2024-12-24T19:37:03.000+01:00"
+        },
+        {
+          "clockIn": "2024-12-24T19:51:14.000+01:00",
+          "clockOut": "2024-12-24T20:14:17.000+01:00"
+        }
+      ]
+    },
+    "admin": {
+      "username": "admin",
+      "password": "password123",
+      "role": "admin",
+      "clockTimes": []
+    }
+  }
+}
