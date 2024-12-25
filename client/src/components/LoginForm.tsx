@@ -1,21 +1,28 @@
 import React, { useState } from "react";
 import { Button, TextField, Container, Box, Typography } from "@mui/material";
 import { loginUser } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
 
-interface LoginFormProps {
-  onLoginSuccess: () => void;
-}
-
-const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
+const LoginForm: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await loginUser(username, password);
-      onLoginSuccess();
+      const { token, role } = await loginUser(username, password);
+      // Save the token for future API requests
+      localStorage.setItem("authToken", token);
+      // Navigate based on user role
+      if (role === "admin") {
+        navigate("/admin-dashboard");
+      } else if (role === "user") {
+        navigate("/user-dashboard");
+      } else {
+        setError("Unknown role. Please contact support.");
+      }
     } catch (err: any) {
       setError(err.message);
     }
