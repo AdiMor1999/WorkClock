@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import { getGermanTime } from "../api/timeApi";
+import { Typography } from "@mui/material";
 
 const Clock: React.FC = () => {
   const [germanTime, setGermanTime] = useState<DateTime | null>(null);
@@ -32,10 +33,14 @@ const Clock: React.FC = () => {
 
   // Format the German time using Luxon's format method
   const formattedTime = germanTime
-    ? germanTime.toLocaleString(DateTime.TIME_SIMPLE) // You can also use other formats here if needed
+    ? germanTime.toLocaleString(DateTime.DATETIME_MED)
     : "Loading...";
 
-  return <p>German Time: {formattedTime}</p>;
+  return (
+    <Typography variant="h5" component="p" align="center">
+      {formattedTime}
+    </Typography>
+  );
 };
 
 export default Clock;

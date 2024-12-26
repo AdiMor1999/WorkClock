@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../hooks/useAuth";
 import { getReports, updateReport } from "../api/adminApi";
 import ReportTable from "./ReportTable";
 import { Report } from "../types";
 import EditReportModal from "./EditReportModal";
+import { toast } from "react-toastify";
 
 const AdminDashboard: React.FC = () => {
-  const { token } = useAuth();
+  const token = localStorage.getItem("authToken");
   const [reports, setReports] = useState<Report[]>([]);
   const [editingReport, setEditingReport] = useState<{
     username: string;
@@ -43,7 +43,6 @@ const AdminDashboard: React.FC = () => {
       const { username, index } = editingReport;
 
       try {
-        // Call the API and get the updated clock time
         const { updatedClockTime } = await updateReport(
           token,
           username,
@@ -51,6 +50,10 @@ const AdminDashboard: React.FC = () => {
           updatedClockIn,
           updatedClockOut
         );
+        toast.success(`Successfully Update Report!`, {
+          position: "top-center",
+          autoClose: 3000,
+        });
 
         // Update the specific clockTime in the reports state
         setReports((prevReports) =>
@@ -73,6 +76,10 @@ const AdminDashboard: React.FC = () => {
         );
       } catch (error) {
         console.error("Error updating the report:", error);
+        toast.error("Failed to update the report. Please try again.", {
+          position: "top-center",
+          autoClose: 3000,
+        });
       } finally {
         setEditingReport(null); // Close the modal
       }

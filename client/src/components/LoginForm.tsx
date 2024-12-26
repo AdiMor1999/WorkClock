@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { Button, TextField, Container, Box, Typography } from "@mui/material";
 import { loginUser } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
 
 const LoginForm: React.FC = () => {
   const [username, setUsernameInput] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const { setUsername, setToken } = useAuth();
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,9 +20,8 @@ const LoginForm: React.FC = () => {
       } = await loginUser(username, password);
       // Save the token for future API requests
       localStorage.setItem("authToken", token);
-      // Set the username in the context
-      setUsername(fetchedUsername); // Update the username in context
-      setToken(token);
+      localStorage.setItem("username", fetchedUsername);
+
       // Navigate based on user role
       if (role === "admin") {
         navigate("/admin-dashboard");

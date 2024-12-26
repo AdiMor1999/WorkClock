@@ -5,6 +5,8 @@ import GlobalStyles from "@mui/material/GlobalStyles";
 import LoginPage from "./pages/LoginPage";
 import UserDashboardPage from "./pages/UserDashboardPage";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           },
         }}
       />
+      <ToastContainer />
 
       <Router>
         <Container>

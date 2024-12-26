@@ -29,6 +29,7 @@ const ClockButtons: React.FC<ClockButtonsProps> = ({
         variant="contained"
         color={isClockedIn ? "secondary" : "primary"}
         onClick={handleClick}
+        sx={{ width: "200px", fontSize: "18px", padding: "16px" }}
       >
         {isClockedIn ? "Clock Out" : "Clock In"}
       </Button>
