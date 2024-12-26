@@ -2,19 +2,28 @@ import React, { useState } from "react";
 import { Button, TextField, Container, Box, Typography } from "@mui/material";
 import { loginUser } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const LoginForm: React.FC = () => {
-  const [username, setUsername] = useState("");
+  const [username, setUsernameInput] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const { setUsername, setToken } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const { token, role } = await loginUser(username, password);
+      const {
+        token,
+        role,
+        username: fetchedUsername,
+      } = await loginUser(username, password);
       // Save the token for future API requests
       localStorage.setItem("authToken", token);
+      // Set the username in the context
+      setUsername(fetchedUsername); // Update the username in context
+      setToken(token);
       // Navigate based on user role
       if (role === "admin") {
         navigate("/admin-dashboard");
@@ -40,7 +49,7 @@ const LoginForm: React.FC = () => {
             variant="outlined"
             fullWidth
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsernameInput(e.target.value)}
             required
           />
           <TextField

@@ -8,6 +8,7 @@
     "@mui/material": "^6.3.0",
     "axios": "^1.7.9",
     "cra-template-typescript": "1.2.0",
+    "luxon": "^3.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
@@ -38,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@types/luxon": "^3.4.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "@types/react-router-dom": "^5.3.3"

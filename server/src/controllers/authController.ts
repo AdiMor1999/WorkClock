@@ -25,6 +25,6 @@ export const login = (req: Request, res: Response) => {
       }
     );
 
-    res.status(200).json({ token, role: user.role });
+    res.status(200).json({ token, role: user.role, username: user.username });
   }
 };
