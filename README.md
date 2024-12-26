@@ -84,7 +84,7 @@ Client runs on `http://localhost:3000`
   -  **History**: Personal time tracking record
   - **Statistics**: Total hours worked
   - View analytics dashboard
-  -Advanced filtering and search options
-  -improve UI/UX
+  - Advanced filtering and search options
+  - improve UI/UX
  
   
