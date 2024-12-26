@@ -79,7 +79,8 @@ Client runs on `http://localhost:3000`
   username: admin
   password: password456
   ```
-  ##🔄 Future Improvements
+  
+##🔄 Future Improvements
   -  **History**: Personal time tracking record
   - **Statistics**: Total hours worked
   - View analytics dashboard
