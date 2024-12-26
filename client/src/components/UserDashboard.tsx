@@ -3,7 +3,7 @@ import { useAuth } from "../hooks/useAuth";
 import { recordClock } from "../api/usersApi";
 
 import ClockButtons from "./ClockButtons";
-import Clock from "./clock";
+import Clock from "./Clock";
 
 const UserDashboard: React.FC = () => {
   const { username, token } = useAuth();

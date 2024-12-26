@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CssBaseline, Container } from "@mui/material";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import LoginPage from "./pages/LoginPage";
-import UserDashboard from "./pages/UserDashboardPage";
-// import AdminDashboard from "./pages/AdminDashboard";
+import UserDashboardPage from "./pages/UserDashboardPage";
+import AdminDashboardPage from "./pages/AdminDashboardPage";
 
 function App() {
   return (
@@ -26,8 +26,8 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<LoginPage />} />
-            <Route path="/user-dashboard" element={<UserDashboard />} />
-            {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
+            <Route path="/user-dashboard" element={<UserDashboardPage />} />
+            <Route path="/admin-dashboard" element={<AdminDashboardPage />} />
           </Routes>
         </Container>
       </Router>

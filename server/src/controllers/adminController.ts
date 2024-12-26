@@ -46,6 +46,10 @@ export function editUserReport(req: Request, res: Response) {
 
   res.status(200).json({
     message: "Clock time updated successfully",
-    clockTimes: user.clockTimes,
+    updatedClockTime: {
+      index,
+      clockIn: clockTime.clockIn,
+      clockOut: clockTime.clockOut,
+    },
   });
 }
