@@ -41,6 +41,22 @@ const ReportTable: React.FC<ReportTableProps> = ({ reports, onEdit }) => {
     }))
   );
 
+  //from:
+  // const reports = [
+  // {
+  //   username: 'Alice',
+  //   clockTimes: [
+  //     { clockIn: '2024-12-01T08:00', clockOut: '2024-12-01T16:00' },
+  //     { clockIn: '2024-12-02T08:30', clockOut: '2024-12-02T16:30' },
+  //   ]
+  // }
+  //];
+  //to:
+  // [
+  //   { username: 'Alice', clockIn: '2024-12-01T08:00', clockOut: '2024-12-01T16:00', index: 0, key: 'Alice-0' },
+  //   { username: 'Alice', clockIn: '2024-12-02T08:30', clockOut: '2024-12-02T16:30', index: 1, key: 'Alice-1' },
+  // ]
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

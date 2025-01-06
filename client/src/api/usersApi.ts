@@ -15,11 +15,11 @@ export const recordClock = async (
       { type },
       {
         headers: {
-          Authorization: `Bearer ${token}`, // Add token to headers
+          Authorization: `Bearer ${token}`,
         },
       }
     );
-    return response.data; // Assuming the response contains the clock time status
+    return response.data;
   } catch (error: any) {
     throw new Error(
       error.response?.data?.error || "Failed to record clock time"
