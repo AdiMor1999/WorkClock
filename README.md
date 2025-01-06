@@ -47,6 +47,8 @@ cd server
 # Install dependencies
 npm install
 
+Create a `.env` file in the root of server directory and paste JWT_SECRET val .
+
 # Start server
 npm start
 ```
